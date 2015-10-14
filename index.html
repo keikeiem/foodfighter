@@ -1,9 +1,27 @@
-<html>
+<html ng-app="foodfighterApp">
 <head>
+	<meta charset="UTF-8">
 	<title>Where we have lunch or dinner today?</title>
+	<link rel="stylesheet" href="css/index.css">
+	<script src="js/angular.min.js"></script>
+	<script src="js/controller.js"></script>
 </head>
-<body>
+<body ng-controller="ListControl">
 	<h1>Where we have lunch or dinner today?</h1>
+	
+	<h3>점심식사(Lunch)</h3>
+	<ul>
+	   <li ng-repeat="restaurant in lunch">
+		  <span>{{ restaurant.name }}</span>
+		  <p> - {{ restaurant.food }}</p>		
+	   </li>
+	</ul>
+	<h3>저녁식사(Dinner)</h3>
+	<ul>
+	   <li ng-repeat="restaurant in dinner">
+		  <span>{{ restaurant.name }}</span>		
+	   </li>
+	</ul>
 </body>
 </html>
 
