@@ -1,0 +1,26 @@
+/* global define */
+'use strict';
+
+define([
+	// 생성한 앵귤러 모듈에 루트를 등록하기 위해 임포트
+	'app',
+	// 루트를 등록하는 routeConfig를 사용하기 위해 임포트
+	'route_config'
+],
+
+	function(app, routeConfig) {
+		// app은 생성한 myApp 앵귤러 모듈
+		return app.config(function($routeProvider) {
+			// Home
+			$routeProvider.when('/main', routeConfig.config('../partials/main.html', 'controllers/main',
+				{
+					directives: [],
+					services: [],
+					filters: []
+				}
+			));
+
+			// 기본 경로 설정
+			$routeProvider.otherwise({redirectTo: '/main'});
+		});
+	});
